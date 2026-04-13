@@ -53,28 +53,19 @@
     }
     .hero-bg {
       position: absolute; inset: 0;
-      /* 明るい昼間の森・空のグラデーション */
-      background:
-        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(120,190,230,0.65) 0%, transparent 55%),
-        radial-gradient(ellipse 60% 60% at 20% 85%, rgba(40,100,35,0.7) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 50% at 80% 80%, rgba(50,120,40,0.5) 0%, transparent 55%),
-        radial-gradient(ellipse 40% 25% at 70% 10%, rgba(200,230,255,0.4) 0%, transparent 50%),
-        linear-gradient(175deg, #1c4878 0%, #1e5518 40%, #163a10 100%);
+      background-image: url('https://static.wixstatic.com/media/79c0a1_ab2bcafb131942388da7a8bc7e5dd93d~mv2.png');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
     }
-    /* 木漏れ日テクスチャ */
+    /* テキスト可読性のための軽いオーバーレイ */
     .hero-bg::before {
       content: ''; position: absolute; inset: 0;
-      background-image:
-        radial-gradient(ellipse 8% 12% at 25% 20%, rgba(255,255,255,0.12) 0%, transparent 70%),
-        radial-gradient(ellipse 5% 8% at 70% 15%, rgba(255,255,255,0.1) 0%, transparent 70%),
-        radial-gradient(ellipse 6% 10% at 45% 30%, rgba(255,255,255,0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 10% 6% at 85% 25%, rgba(255,255,255,0.09) 0%, transparent 70%);
+      background: rgba(0, 0, 0, 0.28);
     }
-    /* 上からの光 */
     .hero-bg::after {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(180,220,255,0.22) 0%, transparent 40%),
-                  radial-gradient(ellipse 80% 30% at 50% 0%, rgba(255,240,200,0.15) 0%, transparent 60%);
+      background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.35) 100%);
     }
     .hero-content { position: relative; z-index: 1; }
     .hero-eyebrow {
