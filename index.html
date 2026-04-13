@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blue Nostalgia Festival 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+      background: #faf6ef;
+      color: #1e2a1c;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    :root {
+      /* Light / nature palette */
+      --ivory:     #faf6ef;
+      --cream:     #f3ede0;
+      --sage-lt:   #eef4e8;
+      --sage:      #cfe0c4;
+      --forest:    #2c5422;
+      --mid:       #487a3c;
+      --leaf:      #5c9448;
+      --amber:     #c97a28;
+      --amber-lt:  #e8a040;
+      --earth:     #7a4a1a;
+      --charcoal:  #1e2a1c;
+      --stone:     #6a6458;
+      --white:     #ffffff;
+      /* Night palette (ticket / camp) */
+      --night:     #0b1624;
+      --night-2:   #102236;
+      --night-gold: #c9a84c;
+      --night-cream: #d8d0c4;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      height: 680px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 60px 24px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      /* 明るい昼間の森・空のグラデーション */
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(120,190,230,0.65) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 60% at 20% 85%, rgba(40,100,35,0.7) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 80% 80%, rgba(50,120,40,0.5) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 25% at 70% 10%, rgba(200,230,255,0.4) 0%, transparent 50%),
+        linear-gradient(175deg, #1c4878 0%, #1e5518 40%, #163a10 100%);
+    }
+    /* 木漏れ日テクスチャ */
+    .hero-bg::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        radial-gradient(ellipse 8% 12% at 25% 20%, rgba(255,255,255,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 5% 8% at 70% 15%, rgba(255,255,255,0.1) 0%, transparent 70%),
+        radial-gradient(ellipse 6% 10% at 45% 30%, rgba(255,255,255,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 10% 6% at 85% 25%, rgba(255,255,255,0.09) 0%, transparent 70%);
+    }
+    /* 上からの光 */
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(180,220,255,0.22) 0%, transparent 40%),
+                  radial-gradient(ellipse 80% 30% at 50% 0%, rgba(255,240,200,0.15) 0%, transparent 60%);
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-eyebrow {
+      font-size: 0.7rem; letter-spacing: 0.5em; text-transform: uppercase;
+      color: rgba(255,255,255,0.75); margin-bottom: 16px;
+      font-family: 'Noto Sans JP', sans-serif; font-weight: 300;
+      display: flex; align-items: center; gap: 16px; justify-content: center;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: ''; width: 36px; height: 1px; background: rgba(255,255,255,0.4);
+    }
+    /* ===== タイトル: Glamping Villageイメージの太字アウトドアスタイル ===== */
+    .hero-title {
+      font-size: clamp(3.8rem, 11vw, 9.5rem);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+      color: #fff;
+      font-family: 'Noto Sans JP', sans-serif;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      text-shadow:
+        0 4px 24px rgba(0,0,0,0.35),
+        0 2px 8px rgba(0,0,0,0.25),
+        0 0 60px rgba(40,100,35,0.4);
+    }
+    .hero-title em {
+      font-style: normal;
+      color: #fff;
+      -webkit-text-stroke: 0;
+      display: block;
+    }
+    /* "Festival" 行: 少し細め・小さめ */
+    .hero-title .festival-line {
+      font-size: 0.38em;
+      font-weight: 300;
+      letter-spacing: 0.55em;
+      color: rgba(255,255,255,0.75);
+      margin-top: 8px;
+      display: block;
+    }
+    .hero-subtitle {
+      font-size: clamp(0.85rem, 2vw, 1.2rem); letter-spacing: 0.55em;
+      color: rgba(255,255,255,0.7); margin-bottom: 28px; font-weight: 300;
+      font-family: 'Noto Sans JP', sans-serif; text-transform: uppercase;
+    }
+    .hero-date-box {
+      display: inline-flex; flex-direction: column; align-items: center;
+      border: 1px solid rgba(232,160,64,0.5); padding: 16px 40px; margin-bottom: 36px;
+      position: relative; background: rgba(0,0,0,0.18);
+    }
+    .hero-date-box::before, .hero-date-box::after {
+      content: ''; position: absolute; width: 8px; height: 8px;
+      border-color: rgba(232,160,64,0.7); border-style: solid;
+    }
+    .hero-date-box::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+    .hero-date-box::after  { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+    .hero-date { font-size: clamp(0.95rem, 2.2vw, 1.3rem); letter-spacing: 0.15em; color: #fff; margin-bottom: 4px; }
+    .hero-time { font-size: 0.88rem; letter-spacing: 0.2em; color: rgba(232,160,64,0.85); }
+    .hero-venue { font-size: 0.83rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.8); margin-bottom: 36px; }
+    .btn-primary {
+      display: inline-block; padding: 15px 50px;
+      background: var(--forest); color: #fff;
+      font-size: 0.82rem; letter-spacing: 0.25em; font-weight: 500;
+      transition: background 0.25s, transform 0.2s; font-family: 'Noto Sans JP', sans-serif;
+      border: 2px solid var(--forest);
+    }
+    .btn-primary:hover { background: var(--mid); border-color: var(--mid); transform: translateY(-2px); }
+    .btn-outline {
+      display: inline-block; padding: 13px 46px;
+      border: 2px solid var(--forest); color: var(--forest);
+      font-size: 0.82rem; letter-spacing: 0.2em;
+      transition: background 0.25s, color 0.25s; font-family: 'Noto Sans JP', sans-serif;
+    }
+    .btn-outline:hover { background: var(--forest); color: #fff; }
+    .btn-outline.night { border-color: rgba(201,168,76,0.6); color: rgba(201,168,76,0.9); }
+    .btn-outline.night:hover { background: rgba(201,168,76,0.15); }
+
+    /* ===== SECTION BASE ===== */
+    section { position: relative; }
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .section-header { text-align: center; margin-bottom: 60px; }
+    .section-label {
+      font-size: 0.7rem; letter-spacing: 0.5em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 14px; display: block;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    .section-title {
+      font-size: clamp(1.7rem, 3.5vw, 2.6rem); font-weight: 300;
+      color: var(--charcoal); letter-spacing: 0.08em;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    .section-divider {
+      width: 40px; height: 2px;
+      background: linear-gradient(90deg, var(--leaf), var(--amber));
+      margin: 18px auto 0; border-radius: 2px;
+    }
+    .pad { padding: 96px 0; }
+
+    /* ===== FESTIVAL OVERVIEW ===== */
+    .overview-section {
+      background: var(--ivory);
+      border-top: 3px solid var(--forest);
+    }
+    .overview-inner { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+    .overview-slogan-block {
+      text-align: center; margin-bottom: 52px; padding-bottom: 44px;
+      border-bottom: 1px solid var(--sage);
+    }
+    .overview-catch {
+      font-size: clamp(0.95rem, 2.2vw, 1.2rem);
+      letter-spacing: 0.4em; color: var(--amber); margin-bottom: 18px; font-weight: 300;
+    }
+    .overview-title {
+      font-size: clamp(1.9rem, 4.5vw, 3.2rem); font-weight: 300;
+      color: var(--charcoal); letter-spacing: 0.1em; line-height: 1.2;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    .overview-title span {
+      display: block; font-size: clamp(0.8rem, 1.6vw, 0.95rem);
+      letter-spacing: 0.35em; color: var(--stone); margin-top: 14px; font-weight: 400;
+      font-family: 'Noto Sans JP', sans-serif; text-transform: uppercase;
+    }
+    .overview-tags {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 28px;
+    }
+    .overview-tag {
+      padding: 5px 16px; border-radius: 20px;
+      border: 1px solid var(--sage); background: var(--sage-lt);
+      font-size: 0.7rem; letter-spacing: 0.12em; color: var(--forest);
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    .overview-body { }
+    .overview-lead {
+      font-size: clamp(0.95rem, 1.8vw, 1.05rem); line-height: 2.1;
+      color: var(--charcoal); margin-bottom: 24px;
+    }
+    .overview-lead strong { color: var(--forest); font-weight: 500; }
+    .overview-para {
+      font-size: 0.92rem; line-height: 2.1; color: var(--stone); margin-bottom: 16px;
+    }
+    .overview-nostalgia {
+      margin-top: 32px; padding: 28px 32px;
+      border-left: 3px solid var(--leaf);
+      background: var(--sage-lt);
+      border-radius: 0 6px 6px 0;
+    }
+    .overview-nostalgia p { font-size: 0.92rem; line-height: 2; color: #3a4a38; }
+    .overview-nostalgia .nostalgia-kw {
+      font-size: clamp(0.98rem, 1.8vw, 1.15rem); color: var(--forest);
+      font-weight: 500; display: block; margin-bottom: 14px; letter-spacing: 0.04em;
+    }
+
+    /* ===== ABOUT ===== */
+    .about-section { background: var(--sage-lt); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-photo-frame {
+      width: 100%; aspect-ratio: 4/5; position: relative; overflow: hidden;
+      border-radius: 4px; box-shadow: 0 12px 40px rgba(44,84,34,0.15);
+    }
+    .about-photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+    .about-photo-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+      background: linear-gradient(135deg, #cfe0c4 0%, #a8c89a 100%);
+      color: rgba(44,84,34,0.45); font-size: 0.78rem; letter-spacing: 0.2em;
+    }
+    .about-visual { position: relative; }
+    .about-frame-deco {
+      position: absolute; top: 10px; right: -10px;
+      width: calc(100% - 20px); height: calc(100% - 20px);
+      border: 1px solid var(--sage); pointer-events: none; border-radius: 4px;
+    }
+    .about-name { font-size: 0.7rem; letter-spacing: 0.4em; color: var(--amber); text-transform: uppercase; margin-bottom: 14px; font-family: 'Noto Sans JP', sans-serif; }
+    .about-heading { font-size: clamp(1.3rem, 2.3vw, 1.9rem); font-weight: 300; color: var(--charcoal); line-height: 1.65; margin-bottom: 24px; }
+    .about-body { font-size: 0.9rem; line-height: 2; color: #3a4a38; margin-bottom: 14px; }
+    .about-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .badge {
+      padding: 5px 16px; border-radius: 20px;
+      border: 1px solid var(--sage); background: #fff;
+      font-size: 0.7rem; letter-spacing: 0.12em; color: var(--forest);
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    /* ===== ARTISTS ===== */
+    .artists-section { background: var(--ivory); }
+    .artists-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+    .artist-card { position: relative; text-align: center; }
+    .artist-photo {
+      width: 100%; aspect-ratio: 3/4; overflow: hidden; position: relative; margin-bottom: 20px;
+      border-radius: 4px; box-shadow: 0 8px 28px rgba(44,84,34,0.12);
+    }
+    .artist-photo img {
+      width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.5s ease;
+    }
+    .artist-card:hover .artist-photo img { transform: scale(1.04); }
+    .artist-photo-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(160deg, #cfe0c4 0%, #a8c89a 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+      color: rgba(44,84,34,0.4); font-size: 0.75rem; letter-spacing: 0.2em;
+    }
+    .artist-photo::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(30,42,28,0.6) 0%, transparent 45%);
+      pointer-events: none;
+    }
+    .artist-title {
+      font-size: 0.67rem; line-height: 1.7; letter-spacing: 0.04em;
+      color: var(--stone); margin-bottom: 6px; padding: 0 4px;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    .artist-number {
+      font-size: 0.64rem; letter-spacing: 0.4em; color: var(--amber); margin-bottom: 6px;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    .artist-name {
+      font-size: 1.15rem; font-weight: 400; color: var(--charcoal); letter-spacing: 0.1em; margin-bottom: 6px;
+    }
+    .artist-name a {
+      color: inherit; border-bottom: 1px solid var(--sage);
+      transition: border-color 0.2s, color 0.2s; padding-bottom: 2px;
+    }
+    .artist-name a:hover { color: var(--forest); border-color: var(--leaf); }
+    .artist-role { font-size: 0.72rem; letter-spacing: 0.2em; color: var(--mid); font-family: 'Noto Sans JP', sans-serif; }
+
+    /* Blue Nostalgia ユニットカード */
+    .artist-card.unit {
+      border: 2px solid var(--forest);
+      border-radius: 4px;
+      padding-bottom: 24px; position: relative; background: #fff;
+      box-shadow: 0 8px 32px rgba(44,84,34,0.14);
+    }
+    .artist-card.unit .artist-photo { aspect-ratio: 3/4; margin-bottom: 0; border-radius: 2px 2px 0 0; }
+    .headliner-badge {
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      background: var(--forest); color: #fff;
+      font-size: 0.58rem; letter-spacing: 0.3em; padding: 5px 18px;
+      font-weight: 500; text-transform: uppercase; white-space: nowrap; z-index: 2;
+      font-family: 'Noto Sans JP', sans-serif; border-radius: 0 0 4px 4px;
+    }
+    .unit-header {
+      padding: 18px 20px 14px;
+      border-bottom: 1px solid var(--sage);
+    }
+    .unit-band-label { font-size: 0.64rem; letter-spacing: 0.4em; color: var(--amber); margin-bottom: 6px; font-family: 'Noto Sans JP', sans-serif; }
+    .unit-band-name { font-size: 1.25rem; font-weight: 400; color: var(--charcoal); letter-spacing: 0.08em; margin-bottom: 6px; }
+    .unit-genre { font-size: 0.7rem; letter-spacing: 0.15em; color: var(--mid); font-family: 'Noto Sans JP', sans-serif; }
+    .unit-members-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--sage-lt);
+    }
+    .unit-member-item { padding: 16px 12px; text-align: center; }
+    .unit-member-item:first-child { border-right: 1px solid var(--sage); }
+    .unit-member-title {
+      font-size: 0.58rem; line-height: 1.6; color: var(--stone);
+      letter-spacing: 0.03em; margin-bottom: 7px; font-family: 'Noto Sans JP', sans-serif;
+    }
+    .unit-member-name {
+      font-size: 0.92rem; font-weight: 400; color: var(--charcoal); letter-spacing: 0.08em; margin-bottom: 4px;
+    }
+    .unit-member-name a {
+      color: inherit; border-bottom: 1px solid var(--sage);
+      transition: color 0.2s, border-color 0.2s; padding-bottom: 1px;
+    }
+    .unit-member-name a:hover { color: var(--forest); border-color: var(--leaf); }
+    .unit-member-role { font-size: 0.66rem; color: var(--mid); letter-spacing: 0.1em; font-family: 'Noto Sans JP', sans-serif; }
+
+    /* ===== WORKSHOP ===== */
+    .workshop-section { background: var(--cream); }
+    .workshop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .workshop-card {
+      border-radius: 4px; overflow: hidden;
+      box-shadow: 0 4px 20px rgba(44,84,34,0.1);
+      background: #fff; transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .workshop-card:hover { box-shadow: 0 10px 36px rgba(44,84,34,0.18); transform: translateY(-3px); }
+    .workshop-photo { width: 100%; aspect-ratio: 4/3; overflow: hidden; }
+    .workshop-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.5s; }
+    .workshop-card:hover .workshop-photo img { transform: scale(1.05); }
+    .workshop-photo-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #cfe0c4 0%, #a8c89a 100%);
+      display: flex; align-items: center; justify-content: center; font-size: 3rem;
+    }
+    .workshop-body { padding: 24px 24px 28px; }
+    .workshop-num { font-size: 0.63rem; letter-spacing: 0.4em; color: var(--amber); margin-bottom: 10px; font-family: 'Noto Sans JP', sans-serif; }
+    .workshop-name { font-size: 1.15rem; font-weight: 400; color: var(--charcoal); margin-bottom: 8px; letter-spacing: 0.06em; }
+    .workshop-instructor { font-size: 0.75rem; letter-spacing: 0.12em; color: var(--mid); font-family: 'Noto Sans JP', sans-serif; }
+    .workshop-desc { font-size: 0.86rem; line-height: 1.85; color: var(--stone); margin-top: 10px; font-family: 'Noto Sans JP', sans-serif; }
+
+    /* ===== KITCHEN CAR ===== */
+    .kitchen-section { background: var(--sage-lt); }
+    .kitchen-intro {
+      text-align: center; font-size: 0.9rem; line-height: 1.9;
+      color: var(--stone); max-width: 600px; margin: 0 auto 52px;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    .kitchen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .kitchen-card {
+      border-radius: 4px; overflow: hidden; background: #fff;
+      box-shadow: 0 4px 20px rgba(44,84,34,0.1);
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .kitchen-card:hover { box-shadow: 0 10px 32px rgba(44,84,34,0.16); transform: translateY(-3px); }
+    .kitchen-photo { width: 100%; aspect-ratio: 4/3; overflow: hidden; position: relative; }
+    .kitchen-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .kitchen-card:hover .kitchen-photo img { transform: scale(1.04); }
+    .kitchen-photo-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #cfe0c4 0%, #a8c89a 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 12px; color: rgba(44,84,34,0.4); font-size: 0.72rem; letter-spacing: 0.2em;
+    }
+    .kitchen-body { padding: 20px 20px 24px; }
+    .kitchen-area {
+      font-size: 0.63rem; letter-spacing: 0.3em; color: var(--amber);
+      margin-bottom: 8px; font-family: 'Noto Sans JP', sans-serif; text-transform: uppercase;
+    }
+    .kitchen-name { font-size: 1.05rem; font-weight: 500; color: var(--charcoal); margin-bottom: 12px; letter-spacing: 0.04em; }
+    .kitchen-awards { margin-bottom: 14px; }
+    .kitchen-award {
+      display: flex; align-items: baseline; gap: 8px;
+      font-size: 0.73rem; line-height: 1.7; color: var(--stone); margin-bottom: 3px;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    .kitchen-award::before { content: '✦'; color: var(--amber); font-size: 0.52rem; flex-shrink: 0; }
+    .kitchen-chef { font-size: 0.8rem; color: var(--charcoal); letter-spacing: 0.06em; font-family: 'Noto Sans JP', sans-serif; }
+    .kitchen-chef span { color: var(--forest); font-weight: 500; }
+    .kitchen-card.coming-soon {
+      background: transparent;
+      box-shadow: none;
+      border: 2px dashed var(--sage);
+    }
+    .kitchen-card.coming-soon:hover { transform: none; box-shadow: none; }
+    .kitchen-coming-body {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      min-height: 260px; gap: 12px;
+      color: var(--sage); font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    /* ===== TICKET (NIGHT) ===== */
+    .ticket-section { background: var(--night); }
+    .ticket-section .section-label { color: rgba(232,160,64,0.85); }
+    .ticket-section .section-title { color: #f0ebe0; }
+    .ticket-section .section-divider { background: linear-gradient(90deg, rgba(201,168,76,0.7), rgba(232,160,64,0.4)); }
+    .ticket-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; margin-bottom: 56px; }
+    .ticket-card {
+      border: 1px solid rgba(201,168,76,0.3); padding: 48px 40px;
+      position: relative; text-align: center;
+      background: rgba(255,255,255,0.03);
+    }
+    .ticket-card.featured {
+      border-color: rgba(201,168,76,0.7);
+      background: rgba(201,168,76,0.06);
+    }
+    .ticket-label-tag {
+      position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+      background: var(--amber); color: #fff;
+      font-size: 0.66rem; letter-spacing: 0.25em; padding: 4px 20px;
+      font-weight: 500; white-space: nowrap; font-family: 'Noto Sans JP', sans-serif;
+    }
+    .ticket-type { font-size: 0.72rem; letter-spacing: 0.4em; color: rgba(232,160,64,0.8); margin-bottom: 20px; font-family: 'Noto Sans JP', sans-serif; text-transform: uppercase; }
+    .ticket-price { font-size: clamp(2rem, 4vw, 3rem); color: #f0ebe0; font-weight: 300; margin-bottom: 8px; font-family: 'Noto Sans JP', sans-serif; }
+    .ticket-price sup { font-size: 0.5em; vertical-align: super; opacity: 0.8; }
+    .ticket-note { font-size: 0.8rem; color: rgba(208,200,188,0.65); margin-bottom: 32px; font-family: 'Noto Sans JP', sans-serif; }
+    .ticket-btn {
+      display: block; padding: 13px; width: 100%;
+      background: transparent; border: 1px solid rgba(201,168,76,0.45);
+      color: rgba(232,160,64,0.85); font-size: 0.76rem; letter-spacing: 0.22em;
+      cursor: pointer; font-family: 'Noto Sans JP', sans-serif; transition: all 0.25s;
+    }
+    .ticket-card.featured .ticket-btn {
+      background: var(--amber); color: #fff; border-color: var(--amber); font-weight: 500;
+    }
+    .ticket-btn:hover { opacity: 0.82; }
+
+    /* ===== CAMP (NIGHT) ===== */
+    .camp-section { background: var(--night-2); }
+    .camp-section .section-label { color: rgba(232,160,64,0.85); }
+    .camp-section .section-title { color: #f0ebe0; }
+    .camp-section .section-divider { background: linear-gradient(90deg, rgba(201,168,76,0.7), rgba(232,160,64,0.4)); }
+    .camp-intro { text-align: center; font-size: 0.9rem; line-height: 1.95; color: var(--night-cream); max-width: 640px; margin: 0 auto 52px; font-family: 'Noto Sans JP', sans-serif; }
+    .camp-notice {
+      display: inline-block; background: rgba(201,168,76,0.07); border-left: 3px solid var(--amber);
+      padding: 14px 20px; font-size: 0.8rem; line-height: 1.8; color: var(--night-cream); margin-top: 20px; text-align: left;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    .camp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .camp-card {
+      border: 1px solid rgba(255,255,255,0.1); padding: 28px 24px;
+      transition: border-color 0.3s; background: rgba(255,255,255,0.03); border-radius: 4px;
+    }
+    .camp-card:hover { border-color: rgba(201,168,76,0.35); }
+    .camp-icon { font-size: 1.7rem; margin-bottom: 14px; }
+    .camp-plan-name { font-size: 1rem; font-weight: 400; color: #f0ebe0; margin-bottom: 7px; letter-spacing: 0.05em; }
+    .camp-meta { font-size: 0.76rem; color: rgba(208,200,188,0.55); letter-spacing: 0.07em; margin-bottom: 18px; line-height: 1.65; font-family: 'Noto Sans JP', sans-serif; }
+    .camp-price-row { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+    .camp-base { font-size: 0.7rem; color: rgba(201,168,76,0.6); letter-spacing: 0.07em; font-family: 'Noto Sans JP', sans-serif; }
+    .camp-price { font-size: 1.3rem; color: rgba(232,160,64,0.9); font-weight: 300; font-family: 'Noto Sans JP', sans-serif; }
+    .camp-price-sub { font-size: 0.7rem; color: rgba(201,168,76,0.55); font-family: 'Noto Sans JP', sans-serif; }
+
+    /* ===== VENUE ===== */
+    .venue-section { background: var(--ivory); }
+    .venue-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .venue-map-placeholder {
+      width: 100%; aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--sage-lt) 0%, var(--sage) 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+      color: var(--mid); font-size: 0.78rem; letter-spacing: 0.2em;
+      border: 1px solid var(--sage); border-radius: 4px;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    .venue-info-label { font-size: 0.7rem; letter-spacing: 0.4em; color: var(--amber); text-transform: uppercase; margin-bottom: 18px; font-family: 'Noto Sans JP', sans-serif; }
+    .venue-name { font-size: clamp(1.25rem, 2.3vw, 1.75rem); color: var(--charcoal); font-weight: 300; margin-bottom: 12px; line-height: 1.55; }
+    .venue-detail { font-size: 0.88rem; line-height: 1.95; color: var(--stone); }
+    .venue-detail p { margin-bottom: 6px; }
+    .venue-detail strong { color: var(--charcoal); }
+    .venue-detail .venue-note { font-size: 0.82rem; color: var(--stone); opacity: 0.75; margin-top: 14px; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0e1c0a; padding: 56px 24px 28px;
+      text-align: center; border-top: 3px solid var(--forest);
+    }
+    .footer-logo { font-size: 1.15rem; letter-spacing: 0.3em; color: rgba(232,160,64,0.9); margin-bottom: 8px; font-family: 'Noto Sans JP', sans-serif; }
+    .footer-sub { font-size: 0.7rem; letter-spacing: 0.22em; color: rgba(255,255,255,0.3); margin-bottom: 28px; font-family: 'Noto Sans JP', sans-serif; text-transform: uppercase; }
+    .footer-copy { font-size: 0.66rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.2); margin-top: 36px; font-family: 'Noto Sans JP', sans-serif; }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      .pad { padding: 68px 0; }
+      .section-header { margin-bottom: 44px; }
+      .hero { height: auto; min-height: 560px; padding: 48px 20px; }
+      .about-grid, .venue-grid { grid-template-columns: 1fr; gap: 36px; }
+      .artists-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+      .artist-card.unit { grid-column: span 2; }
+      .workshop-grid { grid-template-columns: 1fr; gap: 20px; }
+      .kitchen-grid { grid-template-columns: 1fr; gap: 20px; }
+      .ticket-grid { grid-template-columns: 1fr; gap: 28px; }
+      .camp-grid { grid-template-columns: 1fr; }
+      .overview-nostalgia { padding: 22px 18px; }
+      .unit-members-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .section-inner, .overview-inner { padding: 0 16px; }
+      .artists-grid { grid-template-columns: 1fr; }
+      .artist-card.unit { grid-column: span 1; }
+      .hero-date-box { width: 100%; }
+      .btn-primary { width: 100%; text-align: center; padding: 14px 24px; }
+      .ticket-card { padding: 36px 18px; }
+      .overview-tags { gap: 7px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">2026 Summer Music Festival</div>
+    <h1 class="hero-title">Blue<br><em>Nostalgia</em><span class="festival-line">Festival</span></h1>
+    <div class="hero-date-box">
+      <p class="hero-date">2026年 8月 8日（土）</p>
+      <p class="hero-time">12:00 — 20:00</p>
+    </div>
+    <p class="hero-venue">TORCH キャンピング＆コワーキングスペース</p>
+    <a href="#ticket" class="btn-primary">チケットを確認する</a>
+  </div>
+</section>
+
+<!-- ===== FESTIVAL OVERVIEW ===== -->
+<section class="overview-section pad" id="overview">
+  <div class="overview-inner">
+
+    <div class="overview-slogan-block">
+      <p class="overview-catch">原点は、ふるさとに。</p>
+      <h2 class="overview-title">
+        Blue Nostalgia Festival
+        <span>Nikko / Tochigi — 2026.8.8</span>
+      </h2>
+      <div class="overview-tags">
+        <span class="overview-tag">音楽</span>
+        <span class="overview-tag">栃木の食</span>
+        <span class="overview-tag">文化・歴史</span>
+        <span class="overview-tag">体験型ワークショップ</span>
+        <span class="overview-tag">滞在型</span>
+      </div>
+    </div>
+
+    <div class="overview-body">
+      <p class="overview-lead">
+        日光初となる、<strong>「音楽」「栃木の食」「文化・歴史」「体験型ワークショップ」</strong>を融合した<br>
+        <strong>滞在型カルチャーフェス</strong>が誕生。
+      </p>
+      <p class="overview-para">
+        一流アーティストの音楽に包まれながら、風や木々の音、空の色、山の香りに触れる。
+      </p>
+      <p class="overview-para">
+        自然から生まれた栃木の食とともに、五感を解き放ち、郷愁を味わう時間。
+      </p>
+      <div class="overview-nostalgia">
+        <span class="nostalgia-kw">"ノスタルジー"──それは、自分たちの原点を見つめ直すこと。</span>
+        <p>温故知新の精神のもと、ふるさとにある価値を見つめ直し、そこから新しい文化と未来を生み出すフェスを目指します。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about-section pad" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="about-photo-frame">
+          <div class="about-photo-placeholder">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
+              <circle cx="24" cy="18" r="8"/>
+              <path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16"/>
+            </svg>
+            <span>Blue Nostalgia</span>
+          </div>
+        </div>
+        <div class="about-frame-deco"></div>
+      </div>
+      <div class="about-text">
+        <p class="about-name">主催アーティスト</p>
+        <h2 class="about-heading">和と洋が交わる、<br>音の新境地へ。</h2>
+        <p class="about-body">「とちぎ未来大使」を務めるピアニスト・大野紘平と、静岡県「富士宮市世界遺産文化交流親善大使」を務める吟詠家/尺八奏者・前田健志によって結成された音楽ユニット。</p>
+        <p class="about-body">和と洋の融合による音楽の新地を切り拓くことを掲げ、いまだかつてない "吟詠×ピアノ" による音の新境地を創出。詩的で情感溢れるパフォーマンスは各地で高い評価を集め、幅広い世代からの支持が寄せられている。</p>
+        <p class="about-body">"Blue Nostalgia" には、聴く者を憂いを帯びた郷愁の世界へと誘い、心に寄り添う音楽を届けたいという想いが込められている。</p>
+        <div class="about-badges">
+          <span class="badge">吟詠 × ピアノ</span>
+          <span class="badge">尺八インストゥルメンタル</span>
+          <span class="badge">昭和歌謡</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ARTISTS ===== -->
+<section class="artists-section pad" id="artists">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Stage</span>
+      <h2 class="section-title">出演アーティスト</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="artists-grid">
+
+      <!-- 高松亜衣 -->
+      <div class="artist-card">
+        <div class="artist-photo">
+          <img src="https://static.wixstatic.com/media/79c0a1_200e19d0cca048e6b0be2d69ee9b9002~mv2.jpg" alt="高松亜衣"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="artist-photo-placeholder" style="display:none;">
+            <svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="24" cy="18" r="8"/><path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16"/></svg>
+          </div>
+        </div>
+        <p class="artist-number">— 01 —</p>
+        <p class="artist-title">SNS総フォロワー数70万人超<br>ヴァイオリニスト</p>
+        <p class="artist-name"><a href="https://www.aiai-violin.com/" target="_blank" rel="noopener">高松 亜衣</a></p>
+        <p class="artist-role">Violinist</p>
+      </div>
+
+      <!-- ぬ。みる -->
+      <div class="artist-card">
+        <div class="artist-photo">
+          <img src="https://static.wixstatic.com/media/79c0a1_64ed3919f340442d8b7a1a27ba9ddd8c~mv2.jpg" alt="ぬ。みる"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="artist-photo-placeholder" style="display:none;">
+            <svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="24" cy="18" r="8"/><path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16"/></svg>
+          </div>
+        </div>
+        <p class="artist-number">— 02 —</p>
+        <p class="artist-title">栃木市魅力発信特使<br>栃木PRアイドル</p>
+        <p class="artist-name"><a href="https://lit.link/en/numarumiru" target="_blank" rel="noopener">ぬ。みる</a></p>
+        <p class="artist-role">栃木 PR アイドル</p>
+      </div>
+
+      <!-- Blue Nostalgia (1ユニット・2名紹介) -->
+      <div class="artist-card unit">
+        <div class="headliner-badge">主催 · Headliner</div>
+        <div class="artist-photo">
+          <img src="https://static.wixstatic.com/media/79c0a1_38388077db454772bd36e9d91ca1ec09~mv2.jpg" alt="Blue Nostalgia"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="artist-photo-placeholder" style="display:none;">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1"><circle cx="24" cy="18" r="8"/><path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16"/></svg>
+          </div>
+        </div>
+        <div class="unit-header">
+          <p class="unit-band-label">— 03 —</p>
+          <p class="unit-band-name">Blue Nostalgia</p>
+          <p class="unit-genre">吟詠 × ピアノ</p>
+        </div>
+        <div class="unit-members-grid">
+          <div class="unit-member-item">
+            <p class="unit-member-title">とちぎ未来大使</p>
+            <p class="unit-member-name"><a href="https://youtube.com/@kohemaru_piano" target="_blank" rel="noopener">大野 紘平</a></p>
+            <p class="unit-member-role">Piano</p>
+          </div>
+          <div class="unit-member-item">
+            <p class="unit-member-title">富士宮市世界遺産<br>文化交流親善大使</p>
+            <p class="unit-member-name"><a href="https://maeda-kenshi.com/" target="_blank" rel="noopener">前田 健志</a></p>
+            <p class="unit-member-role">吟詠 / 尺八</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== WORKSHOP ===== -->
+<section class="workshop-section pad" id="workshop">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Experience</span>
+      <h2 class="section-title">体験型ワークショップ</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="workshop-grid">
+      <div class="workshop-card">
+        <div class="workshop-photo">
+          <img src="https://static.wixstatic.com/media/79c0a1_b071ff54a060419bb214d7e663cf0cb9~mv2.jpg" alt="打楽器体験"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="workshop-photo-placeholder" style="display:none;">🥁</div>
+        </div>
+        <div class="workshop-body">
+          <p class="workshop-num">Workshop — 01</p>
+          <h3 class="workshop-name">打楽器体験</h3>
+          <p class="workshop-instructor">Percussion Experience</p>
+          <p class="workshop-desc">カホンやパーカッションを実際に叩いて、リズムの楽しさを体感する参加型ワークショップ。初めての方も大歓迎。</p>
+        </div>
+      </div>
+      <div class="workshop-card">
+        <div class="workshop-photo">
+          <img src="https://static.wixstatic.com/media/79c0a1_0bc46a4b959445bbb1f8a1464be1227b~mv2.jpg" alt="和楽器体験"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="workshop-photo-placeholder" style="display:none;">🎋</div>
+        </div>
+        <div class="workshop-body">
+          <p class="workshop-num">Workshop — 02</p>
+          <h3 class="workshop-name">和楽器体験</h3>
+          <p class="workshop-instructor">Traditional Japanese Instruments</p>
+          <p class="workshop-desc">尺八や篠笛など、日本古来の和楽器を実際に手にとって演奏体験。日本の伝統音楽の奥深さを感じてください。</p>
+        </div>
+      </div>
+      <div class="workshop-card">
+        <div class="workshop-photo">
+          <img src="https://static.wixstatic.com/media/79c0a1_170eeee7106f4025bff0cfa001a54cac~mv2.jpg" alt="ピアノ体験"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="workshop-photo-placeholder" style="display:none;">🎹</div>
+        </div>
+        <div class="workshop-body">
+          <p class="workshop-num">Workshop — 03</p>
+          <h3 class="workshop-name">ピアノ体験</h3>
+          <p class="workshop-instructor">Piano Experience</p>
+          <p class="workshop-desc">プロピアニストの指導のもと、鍵盤楽器の基礎から丁寧にレクチャー。音楽の入り口をやさしく開きます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== KITCHEN CAR ===== -->
+<section class="kitchen-section pad" id="kitchen">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Food</span>
+      <h2 class="section-title">出店キッチンカー</h2>
+      <div class="section-divider"></div>
+    </div>
+    <p class="kitchen-intro">栃木・日光の大自然の中で味わう、こだわりの一皿。個性あふれるシェフたちが腕を振るいます。</p>
+    <div class="kitchen-grid">
+
+      <!-- 1店舗目: 広東名菜 好好 -->
+      <div class="kitchen-card">
+        <div class="kitchen-photo">
+          <img src="https://static.wixstatic.com/media/79c0a1_c17439e8a0e1409e8076c5ce1443aa8b~mv2.jpg" alt="広東名菜 好好"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="kitchen-photo-placeholder" style="display:none;">
+            <svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1">
+              <path d="M8 40V20l16-12 16 12v20H8z"/><path d="M18 40V28h12v12"/>
+            </svg>
+            <span>広東名菜 好好</span>
+          </div>
+        </div>
+        <div class="kitchen-body">
+          <p class="kitchen-area">小山市</p>
+          <p class="kitchen-name">広東名菜 好好</p>
+          <div class="kitchen-awards">
+            <p class="kitchen-award">内閣総理大臣総裁賞受賞</p>
+            <p class="kitchen-award">第1回世界中国料理大会 第3位</p>
+          </div>
+          <p class="kitchen-chef">シェフ　<span>高橋 清</span></p>
+        </div>
+      </div>
+
+      <!-- 2店舗目: Coming Soon -->
+      <div class="kitchen-card coming-soon">
+        <div class="kitchen-coming-body">
+          <svg width="32" height="32" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="24" cy="24" r="18"/><path d="M24 14v10l6 6"/>
+          </svg>
+          <span>出店者 募集中</span>
+        </div>
+      </div>
+
+      <!-- 3店舗目: Coming Soon -->
+      <div class="kitchen-card coming-soon">
+        <div class="kitchen-coming-body">
+          <svg width="32" height="32" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="24" cy="24" r="18"/><path d="M24 14v10l6 6"/>
+          </svg>
+          <span>出店者 募集中</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== TICKET ===== -->
+<section class="ticket-section pad" id="ticket">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Admission</span>
+      <h2 class="section-title">チケット</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="ticket-grid">
+      <div class="ticket-card featured">
+        <div class="ticket-label-tag">Recommended</div>
+        <p class="ticket-type">前売券</p>
+        <p class="ticket-price"><sup>¥</sup>3,000</p>
+        <p class="ticket-note">お早めのご購入がお得です</p>
+        <button class="ticket-btn">購入ページへ（準備中）</button>
+      </div>
+      <div class="ticket-card">
+        <p class="ticket-type">当日券</p>
+        <p class="ticket-price"><sup>¥</sup>3,500</p>
+        <p class="ticket-note">当日会場にてお求めください</p>
+        <button class="ticket-btn">当日会場にて販売</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CAMP ===== -->
+<section class="camp-section pad" id="camp">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Stay &amp; Camp</span>
+      <h2 class="section-title">宿泊プラン付チケット</h2>
+      <div class="section-divider"></div>
+    </div>
+    <p class="camp-intro">フェスを一泊二日で楽しむ特別プランをご用意。音楽と自然に包まれた、忘れられない夜を。</p>
+    <div class="camp-grid">
+      <div class="camp-card">
+        <div class="camp-icon">⛺</div>
+        <p class="camp-plan-name">ノーマルキャンプサイト（S）</p>
+        <p class="camp-meta">定員 2名 ／ 全 5区画</p>
+        <div class="camp-price-row">
+          <span class="camp-base">入場券 ¥3,000 ＋</span>
+          <span class="camp-price">¥3,000</span>
+          <span class="camp-price-sub">/ 1区画1泊</span>
+        </div>
+      </div>
+      <div class="camp-card">
+        <div class="camp-icon">🏕️</div>
+        <p class="camp-plan-name">ノーマルキャンプサイト（M）</p>
+        <p class="camp-meta">定員 5名 ／ 全 7区画</p>
+        <div class="camp-price-row">
+          <span class="camp-base">入場券 ¥3,000 ＋</span>
+          <span class="camp-price">¥7,000</span>
+          <span class="camp-price-sub">/ 1区画1泊</span>
+        </div>
+      </div>
+      <div class="camp-card">
+        <div class="camp-icon">🚐</div>
+        <p class="camp-plan-name">トレーラーハウス</p>
+        <p class="camp-meta">定員 大人3名 ＋ お子様 2〜3名 ／ 1日</p>
+        <div class="camp-price-row">
+          <span class="camp-base">入場券 ¥3,000 ＋</span>
+          <span class="camp-price">¥19,000</span>
+          <span class="camp-price-sub">/ 1日</span>
+        </div>
+      </div>
+      <div class="camp-card">
+        <div class="camp-icon">🌟</div>
+        <p class="camp-plan-name">手ぶらキャンプ</p>
+        <p class="camp-meta">1組 2名様〜 ／ 先着 6組限定</p>
+        <div class="camp-price-row">
+          <span class="camp-base">入場券 ¥3,000 ＋</span>
+          <span class="camp-price">¥16,980</span>
+          <span class="camp-price-sub">/ 大人1名1日（Campify）</span>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top: 40px;">
+      <div class="camp-notice">
+        ⚠️ フェスチケットのお申し込みとは別に、キャンプサイトの予約が必要です。<br>
+        詳しくはキャンプサイト予約ページをご覧ください。
+      </div>
+      <div style="margin-top: 28px;">
+        <a href="#" class="btn-outline night">キャンプサイト予約ページへ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VENUE ===== -->
+<section class="venue-section pad" id="venue">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Access</span>
+      <h2 class="section-title">会場案内</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="venue-grid">
+      <div class="venue-map-placeholder">
+        <svg width="52" height="52" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M24 4C16.268 4 10 10.268 10 18c0 10 14 26 14 26s14-16 14-26c0-7.732-6.268-14-14-14z"/>
+          <circle cx="24" cy="18" r="4"/>
+        </svg>
+        <span>Google Map を埋め込み予定</span>
+      </div>
+      <div>
+        <p class="venue-info-label">Venue</p>
+        <h3 class="venue-name">TORCH キャンピング<br>＆コワーキングスペース</h3>
+        <div class="venue-detail">
+          <p><strong>開催日時</strong>　2026年 8月 8日（土）</p>
+          <p><strong>時間</strong>　12:00 〜 20:00</p>
+          <p class="venue-note">アクセス詳細・駐車場情報は<br>公式SNSおよびチケット購入後にご案内します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p class="footer-logo">Blue Nostalgia Festival</p>
+  <p class="footer-sub">2026.8.8 SAT — TORCH Camping &amp; Coworking Space</p>
+  <p class="footer-copy">© 2026 Blue Nostalgia. All rights reserved.</p>
+</footer>
+
+<script>
+  function sendHeight() {
+    window.parent.postMessage({ height: document.body.scrollHeight }, '*');
+  }
+  window.addEventListener('load', sendHeight);
+  window.addEventListener('resize', sendHeight);
+</script>
+
+</body>
+</html>
