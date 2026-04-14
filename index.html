@@ -12,436 +12,245 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
-      background: #faf6ef;
-      color: #1e2a1c;
+      background: #070d1a;
+      color: #e8e0d0;
       overflow-x: hidden;
     }
     img { max-width: 100%; display: block; }
     a { text-decoration: none; color: inherit; }
 
     :root {
-      /* Light / nature palette */
-      --ivory:     #faf6ef;
-      --cream:     #f3ede0;
-      --sage-lt:   #eef4e8;
-      --sage:      #cfe0c4;
-      --forest:    #2c5422;
-      --mid:       #487a3c;
-      --leaf:      #5c9448;
-      --amber:     #c97a28;
-      --amber-lt:  #e8a040;
-      --earth:     #7a4a1a;
-      --charcoal:  #1e2a1c;
-      --stone:     #6a6458;
-      --white:     #ffffff;
-      /* Night palette (ticket / camp) */
-      --night:     #0b1624;
-      --night-2:   #102236;
-      --night-gold: #c9a84c;
-      --night-cream: #d8d0c4;
+      --navy:       #070d1a;
+      --deep:       #0d1a30;
+      --blue:       #1a3a5c;
+      --forest:     #1a3028;
+      --gold:       #c9a84c;
+      --gold-light: #e8c97a;
+      --cream:      #e8e0d0;
+      --white:      #f5f2ee;
     }
 
     /* ===== HERO ===== */
-    .hero {
-      line-height: 0;
-      font-size: 0;
-    }
-    .hero img {
-      width: 100%;
-      display: block;
-    }
+    .hero { line-height: 0; font-size: 0; }
+    .hero img { width: 100%; display: block; }
+
     .btn-primary {
-      display: inline-block; padding: 15px 50px;
-      background: var(--forest); color: #fff;
-      font-size: 0.82rem; letter-spacing: 0.25em; font-weight: 500;
-      transition: background 0.25s, transform 0.2s; font-family: 'Noto Sans JP', sans-serif;
-      border: 2px solid var(--forest);
+      display: inline-block; padding: 16px 52px; background: var(--gold); color: var(--navy);
+      font-size: 0.85rem; letter-spacing: 0.25em; font-weight: 600;
+      transition: background 0.25s, transform 0.2s;
     }
-    .btn-primary:hover { background: var(--mid); border-color: var(--mid); transform: translateY(-2px); }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
     .btn-outline {
-      display: inline-block; padding: 13px 46px;
-      border: 2px solid var(--forest); color: var(--forest);
-      font-size: 0.82rem; letter-spacing: 0.2em;
-      transition: background 0.25s, color 0.25s; font-family: 'Noto Sans JP', sans-serif;
+      display: inline-block; padding: 14px 48px; border: 1px solid var(--gold);
+      color: var(--gold-light); font-size: 0.85rem; letter-spacing: 0.2em;
+      transition: background 0.25s, color 0.25s;
     }
-    .btn-outline:hover { background: var(--forest); color: #fff; }
-    .btn-outline.night { border-color: rgba(201,168,76,0.6); color: rgba(201,168,76,0.9); }
-    .btn-outline.night:hover { background: rgba(201,168,76,0.15); }
+    .btn-outline:hover { background: var(--gold); color: var(--navy); }
 
     /* ===== SECTION BASE ===== */
     section { position: relative; }
     .section-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    .section-header { text-align: center; margin-bottom: 60px; }
+    .section-header { text-align: center; margin-bottom: 64px; }
     .section-label {
-      font-size: 0.7rem; letter-spacing: 0.5em; text-transform: uppercase;
-      color: var(--amber); margin-bottom: 14px; display: block;
-      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.72rem; letter-spacing: 0.45em; text-transform: uppercase;
+      color: var(--gold-light); margin-bottom: 16px; display: block;
     }
     .section-title {
-      font-size: clamp(1.7rem, 3.5vw, 2.6rem); font-weight: 300;
-      color: var(--charcoal); letter-spacing: 0.08em;
-      font-family: 'Noto Sans JP', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300;
+      color: var(--white); letter-spacing: 0.08em;
     }
-    .section-divider {
-      width: 40px; height: 2px;
-      background: linear-gradient(90deg, var(--leaf), var(--amber));
-      margin: 18px auto 0; border-radius: 2px;
-    }
-    .pad { padding: 96px 0; }
+    .section-divider { width: 48px; height: 1px; background: var(--gold); margin: 20px auto 0; opacity: 0.6; }
+    .pad { padding: 100px 0; }
 
     /* ===== FESTIVAL OVERVIEW ===== */
     .overview-section {
-      background: var(--ivory);
-      border-top: 3px solid var(--forest);
+      background: linear-gradient(160deg, #0a1520 0%, #0d1a2a 50%, #0a1f18 100%);
+      border-top: 1px solid rgba(201,168,76,0.15);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
     }
     .overview-inner { max-width: 860px; margin: 0 auto; padding: 0 24px; }
     .overview-slogan-block {
-      text-align: center; margin-bottom: 52px; padding-bottom: 44px;
-      border-bottom: 1px solid var(--sage);
+      text-align: center; margin-bottom: 56px; padding-bottom: 48px;
+      border-bottom: 1px solid rgba(201,168,76,0.2);
     }
-    .overview-catch {
-      font-size: clamp(0.95rem, 2.2vw, 1.2rem);
-      letter-spacing: 0.4em; color: var(--amber); margin-bottom: 18px; font-weight: 300;
-    }
-    .overview-title {
-      font-size: clamp(1.9rem, 4.5vw, 3.2rem); font-weight: 300;
-      color: var(--charcoal); letter-spacing: 0.1em; line-height: 1.2;
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-    .overview-title span {
-      display: block; font-size: clamp(0.8rem, 1.6vw, 0.95rem);
-      letter-spacing: 0.35em; color: var(--stone); margin-top: 14px; font-weight: 400;
-      font-family: 'Noto Sans JP', sans-serif; text-transform: uppercase;
-    }
-    .overview-tags {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 28px;
-    }
-    .overview-tag {
-      padding: 5px 16px; border-radius: 20px;
-      border: 1px solid var(--sage); background: var(--sage-lt);
-      font-size: 0.7rem; letter-spacing: 0.12em; color: var(--forest);
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-    .overview-body { }
-    .overview-lead {
-      font-size: clamp(0.95rem, 1.8vw, 1.05rem); line-height: 2.1;
-      color: var(--charcoal); margin-bottom: 24px;
-    }
-    .overview-lead strong { color: var(--forest); font-weight: 500; }
-    .overview-para {
-      font-size: 0.92rem; line-height: 2.1; color: var(--stone); margin-bottom: 16px;
-    }
-    .overview-nostalgia {
-      margin-top: 32px; padding: 28px 32px;
-      border-left: 3px solid var(--leaf);
-      background: var(--sage-lt);
-      border-radius: 0 6px 6px 0;
-    }
-    .overview-nostalgia p { font-size: 0.92rem; line-height: 2; color: #3a4a38; }
-    .overview-nostalgia .nostalgia-kw {
-      font-size: clamp(0.98rem, 1.8vw, 1.15rem); color: var(--forest);
-      font-weight: 500; display: block; margin-bottom: 14px; letter-spacing: 0.04em;
-    }
+    .overview-catch { font-size: clamp(1rem, 2.5vw, 1.3rem); letter-spacing: 0.35em; color: var(--gold-light); margin-bottom: 20px; font-weight: 300; }
+    .overview-title { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 300; color: var(--white); letter-spacing: 0.1em; line-height: 1.2; }
+    .overview-title span { display: block; font-size: clamp(0.85rem, 1.8vw, 1rem); letter-spacing: 0.3em; color: var(--gold); margin-top: 14px; font-weight: 400; text-transform: uppercase; }
+    .overview-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 32px; }
+    .overview-tag { padding: 6px 18px; border: 1px solid rgba(201,168,76,0.35); font-size: 0.72rem; letter-spacing: 0.15em; color: var(--gold-light); }
+    .overview-lead { font-size: clamp(0.95rem, 1.8vw, 1.05rem); line-height: 2.1; color: var(--cream); margin-bottom: 28px; }
+    .overview-lead strong { color: var(--white); font-weight: 500; }
+    .overview-para { font-size: 0.92rem; line-height: 2.1; color: rgba(232,224,208,0.85); margin-bottom: 20px; }
+    .overview-nostalgia { margin-top: 36px; padding: 32px 36px; border-left: 2px solid rgba(201,168,76,0.5); background: rgba(201,168,76,0.04); }
+    .overview-nostalgia p { font-size: 0.92rem; line-height: 2.1; color: rgba(232,224,208,0.85); }
+    .nostalgia-kw { font-size: clamp(1rem, 2vw, 1.2rem); color: var(--gold-light); font-weight: 400; display: block; margin-bottom: 16px; letter-spacing: 0.05em; }
 
     /* ===== ABOUT ===== */
-    .about-section { background: var(--sage-lt); }
+    .about-section { background: var(--deep); }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .about-photo-frame {
-      width: 100%; aspect-ratio: 4/5; position: relative; overflow: hidden;
-      border-radius: 4px; box-shadow: 0 12px 40px rgba(44,84,34,0.15);
-    }
+    .about-photo-frame { width: 100%; aspect-ratio: 4/5; background: var(--blue); position: relative; overflow: hidden; }
     .about-photo-frame img { width: 100%; height: 100%; object-fit: cover; }
     .about-photo-placeholder {
       width: 100%; height: 100%;
       display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
-      background: linear-gradient(135deg, #cfe0c4 0%, #a8c89a 100%);
-      color: rgba(44,84,34,0.45); font-size: 0.78rem; letter-spacing: 0.2em;
+      background: linear-gradient(135deg, #1a3a5c 0%, #0d2240 100%);
+      color: rgba(201,168,76,0.5); font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
     }
     .about-visual { position: relative; }
-    .about-frame-deco {
-      position: absolute; top: 10px; right: -10px;
-      width: calc(100% - 20px); height: calc(100% - 20px);
-      border: 1px solid var(--sage); pointer-events: none; border-radius: 4px;
-    }
-    .about-name { font-size: 0.7rem; letter-spacing: 0.4em; color: var(--amber); text-transform: uppercase; margin-bottom: 14px; font-family: 'Noto Sans JP', sans-serif; }
-    .about-heading { font-size: clamp(1.3rem, 2.3vw, 1.9rem); font-weight: 300; color: var(--charcoal); line-height: 1.65; margin-bottom: 24px; }
-    .about-body { font-size: 0.9rem; line-height: 2; color: #3a4a38; margin-bottom: 14px; }
-    .about-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
-    .badge {
-      padding: 5px 16px; border-radius: 20px;
-      border: 1px solid var(--sage); background: #fff;
-      font-size: 0.7rem; letter-spacing: 0.12em; color: var(--forest);
-      font-family: 'Noto Sans JP', sans-serif;
-    }
+    .about-frame-deco { position: absolute; top: -12px; right: -12px; width: calc(100% - 24px); height: calc(100% - 24px); border: 1px solid rgba(201,168,76,0.25); pointer-events: none; }
+    .about-name { font-size: 0.72rem; letter-spacing: 0.4em; color: var(--gold-light); text-transform: uppercase; margin-bottom: 16px; }
+    .about-heading { font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 300; color: var(--white); line-height: 1.6; margin-bottom: 28px; }
+    .about-body { font-size: 0.92rem; line-height: 2; color: var(--cream); margin-bottom: 16px; }
+    .about-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .badge { padding: 6px 18px; border: 1px solid rgba(201,168,76,0.4); font-size: 0.72rem; letter-spacing: 0.15em; color: var(--gold-light); }
 
     /* ===== ARTISTS ===== */
-    .artists-section { background: var(--ivory); }
-    .artists-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+    .artists-section { background: var(--navy); }
+    .artists-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
     .artist-card { position: relative; text-align: center; }
-    .artist-photo {
-      width: 100%; aspect-ratio: 3/4; overflow: hidden; position: relative; margin-bottom: 20px;
-      border-radius: 4px; box-shadow: 0 8px 28px rgba(44,84,34,0.12);
-    }
-    .artist-photo img {
-      width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.5s ease;
-    }
+    .artist-photo { width: 100%; aspect-ratio: 3/4; overflow: hidden; position: relative; margin-bottom: 24px; }
+    .artist-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.5s ease; }
     .artist-card:hover .artist-photo img { transform: scale(1.04); }
     .artist-photo-placeholder {
       width: 100%; height: 100%;
-      background: linear-gradient(160deg, #cfe0c4 0%, #a8c89a 100%);
+      background: linear-gradient(160deg, #1a3a5c 0%, #0d2240 60%, #071628 100%);
       display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
-      color: rgba(44,84,34,0.4); font-size: 0.75rem; letter-spacing: 0.2em;
+      color: rgba(201,168,76,0.5); font-size: 0.75rem; letter-spacing: 0.2em;
     }
-    .artist-photo::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(30,42,28,0.6) 0%, transparent 45%);
-      pointer-events: none;
-    }
-    .artist-title {
-      font-size: 0.67rem; line-height: 1.7; letter-spacing: 0.04em;
-      color: var(--stone); margin-bottom: 6px; padding: 0 4px;
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-    .artist-number {
-      font-size: 0.64rem; letter-spacing: 0.4em; color: var(--amber); margin-bottom: 6px;
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-    .artist-name {
-      font-size: 1.15rem; font-weight: 400; color: var(--charcoal); letter-spacing: 0.1em; margin-bottom: 6px;
-    }
-    .artist-name a {
-      color: inherit; border-bottom: 1px solid var(--sage);
-      transition: border-color 0.2s, color 0.2s; padding-bottom: 2px;
-    }
-    .artist-name a:hover { color: var(--forest); border-color: var(--leaf); }
-    .artist-role { font-size: 0.72rem; letter-spacing: 0.2em; color: var(--mid); font-family: 'Noto Sans JP', sans-serif; }
+    .artist-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,13,26,0.75) 0%, transparent 50%); pointer-events: none; }
+    .artist-title { font-size: 0.68rem; line-height: 1.6; letter-spacing: 0.05em; color: rgba(232,224,208,0.55); margin-bottom: 6px; padding: 0 4px; }
+    .artist-number { font-size: 0.65rem; letter-spacing: 0.4em; color: var(--gold-light); margin-bottom: 6px; opacity: 0.8; }
+    .artist-name { font-size: 1.2rem; font-weight: 300; color: var(--white); letter-spacing: 0.1em; margin-bottom: 6px; }
+    .artist-name a { color: inherit; border-bottom: 1px solid rgba(201,168,76,0.4); transition: border-color 0.2s, color 0.2s; padding-bottom: 2px; }
+    .artist-name a:hover { color: var(--gold-light); border-color: var(--gold); }
+    .artist-role { font-size: 0.75rem; letter-spacing: 0.2em; color: var(--gold-light); text-transform: uppercase; }
 
     /* Blue Nostalgia ユニットカード */
-    .artist-card.unit {
-      border: 2px solid var(--forest);
-      border-radius: 4px;
-      padding-bottom: 24px; position: relative; background: #fff;
-      box-shadow: 0 8px 32px rgba(44,84,34,0.14);
-    }
-    .artist-card.unit .artist-photo { aspect-ratio: 3/4; margin-bottom: 0; border-radius: 2px 2px 0 0; }
+    .artist-card.unit { border: 1px solid rgba(201,168,76,0.55); padding-bottom: 28px; position: relative; }
+    .artist-card.unit .artist-photo { aspect-ratio: 3/4; margin-bottom: 0; }
     .headliner-badge {
       position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-      background: var(--forest); color: #fff;
-      font-size: 0.58rem; letter-spacing: 0.3em; padding: 5px 18px;
-      font-weight: 500; text-transform: uppercase; white-space: nowrap; z-index: 2;
-      font-family: 'Noto Sans JP', sans-serif; border-radius: 0 0 4px 4px;
+      background: var(--gold); color: var(--navy);
+      font-size: 0.6rem; letter-spacing: 0.3em; padding: 4px 18px;
+      font-weight: 700; text-transform: uppercase; white-space: nowrap; z-index: 2;
     }
-    .unit-header {
-      padding: 18px 20px 14px;
-      border-bottom: 1px solid var(--sage);
-    }
-    .unit-band-label { font-size: 0.64rem; letter-spacing: 0.4em; color: var(--amber); margin-bottom: 6px; font-family: 'Noto Sans JP', sans-serif; }
-    .unit-band-name { font-size: 1.25rem; font-weight: 400; color: var(--charcoal); letter-spacing: 0.08em; margin-bottom: 6px; }
-    .unit-genre { font-size: 0.7rem; letter-spacing: 0.15em; color: var(--mid); font-family: 'Noto Sans JP', sans-serif; }
-    .unit-members-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      border-top: 1px solid var(--sage-lt);
-    }
-    .unit-member-item { padding: 16px 12px; text-align: center; }
-    .unit-member-item:first-child { border-right: 1px solid var(--sage); }
-    .unit-member-title {
-      font-size: 0.58rem; line-height: 1.6; color: var(--stone);
-      letter-spacing: 0.03em; margin-bottom: 7px; font-family: 'Noto Sans JP', sans-serif;
-    }
-    .unit-member-name {
-      font-size: 0.92rem; font-weight: 400; color: var(--charcoal); letter-spacing: 0.08em; margin-bottom: 4px;
-    }
-    .unit-member-name a {
-      color: inherit; border-bottom: 1px solid var(--sage);
-      transition: color 0.2s, border-color 0.2s; padding-bottom: 1px;
-    }
-    .unit-member-name a:hover { color: var(--forest); border-color: var(--leaf); }
-    .unit-member-role { font-size: 0.66rem; color: var(--mid); letter-spacing: 0.1em; font-family: 'Noto Sans JP', sans-serif; }
+    .unit-header { padding: 20px 20px 16px; border-bottom: 1px solid rgba(201,168,76,0.15); }
+    .unit-band-label { font-size: 0.65rem; letter-spacing: 0.4em; color: var(--gold-light); text-transform: uppercase; margin-bottom: 6px; }
+    .unit-band-name { font-size: 1.3rem; font-weight: 300; color: var(--white); letter-spacing: 0.08em; margin-bottom: 6px; }
+    .unit-genre { font-size: 0.72rem; letter-spacing: 0.15em; color: rgba(201,168,76,0.7); }
+    .unit-members-grid { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(201,168,76,0.15); }
+    .unit-member-item { padding: 18px 14px; text-align: center; }
+    .unit-member-item:first-child { border-right: 1px solid rgba(201,168,76,0.15); }
+    .unit-member-title { font-size: 0.6rem; line-height: 1.6; color: rgba(232,224,208,0.5); letter-spacing: 0.03em; margin-bottom: 8px; }
+    .unit-member-name { font-size: 0.95rem; font-weight: 300; color: var(--white); letter-spacing: 0.08em; margin-bottom: 4px; }
+    .unit-member-name a { color: inherit; border-bottom: 1px solid rgba(201,168,76,0.35); transition: color 0.2s, border-color 0.2s; padding-bottom: 1px; }
+    .unit-member-name a:hover { color: var(--gold-light); border-color: var(--gold); }
+    .unit-member-role { font-size: 0.68rem; color: var(--gold-light); letter-spacing: 0.1em; }
 
     /* ===== WORKSHOP ===== */
-    .workshop-section { background: var(--cream); }
-    .workshop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-    .workshop-card {
-      border-radius: 4px; overflow: hidden;
-      box-shadow: 0 4px 20px rgba(44,84,34,0.1);
-      background: #fff; transition: box-shadow 0.3s, transform 0.3s;
-    }
-    .workshop-card:hover { box-shadow: 0 10px 36px rgba(44,84,34,0.18); transform: translateY(-3px); }
+    .workshop-section { background: linear-gradient(180deg, #0a1628 0%, #0d1a30 100%); }
+    .workshop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .workshop-card { border: 1px solid rgba(201,168,76,0.15); overflow: hidden; transition: border-color 0.3s; }
+    .workshop-card:hover { border-color: rgba(201,168,76,0.5); }
     .workshop-photo { width: 100%; aspect-ratio: 4/3; overflow: hidden; }
     .workshop-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.5s; }
     .workshop-card:hover .workshop-photo img { transform: scale(1.05); }
-    .workshop-photo-placeholder {
-      width: 100%; height: 100%;
-      background: linear-gradient(135deg, #cfe0c4 0%, #a8c89a 100%);
-      display: flex; align-items: center; justify-content: center; font-size: 3rem;
-    }
-    .workshop-body { padding: 24px 24px 28px; }
-    .workshop-num { font-size: 0.63rem; letter-spacing: 0.4em; color: var(--amber); margin-bottom: 10px; font-family: 'Noto Sans JP', sans-serif; }
-    .workshop-name { font-size: 1.15rem; font-weight: 400; color: var(--charcoal); margin-bottom: 8px; letter-spacing: 0.06em; }
-    .workshop-instructor { font-size: 0.75rem; letter-spacing: 0.12em; color: var(--mid); font-family: 'Noto Sans JP', sans-serif; }
-    .workshop-desc { font-size: 0.86rem; line-height: 1.85; color: var(--stone); margin-top: 10px; font-family: 'Noto Sans JP', sans-serif; }
+    .workshop-photo-placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, #1a3a5c 0%, #071628 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: rgba(201,168,76,0.25); }
+    .workshop-body { padding: 28px 28px 32px; }
+    .workshop-num { font-size: 0.65rem; letter-spacing: 0.4em; color: var(--gold-light); opacity: 0.75; margin-bottom: 12px; }
+    .workshop-name { font-size: 1.2rem; font-weight: 300; color: var(--white); margin-bottom: 10px; letter-spacing: 0.08em; }
+    .workshop-instructor { font-size: 0.78rem; letter-spacing: 0.15em; color: var(--gold-light); }
+    .workshop-desc { font-size: 0.88rem; line-height: 1.85; color: var(--cream); margin-top: 12px; }
 
     /* ===== KITCHEN CAR ===== */
-    .kitchen-section { background: var(--sage-lt); }
-    .kitchen-intro {
-      text-align: center; font-size: 0.9rem; line-height: 1.9;
-      color: var(--stone); max-width: 600px; margin: 0 auto 52px;
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-    .kitchen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-    .kitchen-card {
-      border-radius: 4px; overflow: hidden; background: #fff;
-      box-shadow: 0 4px 20px rgba(44,84,34,0.1);
-      transition: box-shadow 0.3s, transform 0.3s;
-    }
-    .kitchen-card:hover { box-shadow: 0 10px 32px rgba(44,84,34,0.16); transform: translateY(-3px); }
+    .kitchen-section { background: linear-gradient(180deg, #070d1a 0%, #0a1520 50%, #070d1a 100%); }
+    .kitchen-intro { text-align: center; font-size: 0.9rem; line-height: 1.9; color: var(--cream); max-width: 600px; margin: 0 auto 60px; }
+    .kitchen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .kitchen-card { border: 1px solid rgba(201,168,76,0.18); overflow: hidden; transition: border-color 0.3s; background: rgba(13,26,48,0.4); }
+    .kitchen-card:hover { border-color: rgba(201,168,76,0.45); }
     .kitchen-photo { width: 100%; aspect-ratio: 4/3; overflow: hidden; position: relative; }
     .kitchen-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
     .kitchen-card:hover .kitchen-photo img { transform: scale(1.04); }
-    .kitchen-photo-placeholder {
-      width: 100%; height: 100%;
-      background: linear-gradient(135deg, #cfe0c4 0%, #a8c89a 100%);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 12px; color: rgba(44,84,34,0.4); font-size: 0.72rem; letter-spacing: 0.2em;
-    }
-    .kitchen-body { padding: 20px 20px 24px; }
-    .kitchen-area {
-      font-size: 0.63rem; letter-spacing: 0.3em; color: var(--amber);
-      margin-bottom: 8px; font-family: 'Noto Sans JP', sans-serif; text-transform: uppercase;
-    }
-    .kitchen-name { font-size: 1.05rem; font-weight: 500; color: var(--charcoal); margin-bottom: 12px; letter-spacing: 0.04em; }
-    .kitchen-awards { margin-bottom: 14px; }
-    .kitchen-award {
-      display: flex; align-items: baseline; gap: 8px;
-      font-size: 0.73rem; line-height: 1.7; color: var(--stone); margin-bottom: 3px;
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-    .kitchen-award::before { content: '✦'; color: var(--amber); font-size: 0.52rem; flex-shrink: 0; }
-    .kitchen-chef { font-size: 0.8rem; color: var(--charcoal); letter-spacing: 0.06em; font-family: 'Noto Sans JP', sans-serif; }
-    .kitchen-chef span { color: var(--forest); font-weight: 500; }
-    .kitchen-card.coming-soon {
-      background: transparent;
-      box-shadow: none;
-      border: 2px dashed var(--sage);
-    }
-    .kitchen-card.coming-soon:hover { transform: none; box-shadow: none; }
-    .kitchen-coming-body {
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      min-height: 260px; gap: 12px;
-      color: var(--sage); font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
-      font-family: 'Noto Sans JP', sans-serif;
-    }
+    .kitchen-photo-placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, #1a3a5c 0%, #071628 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: rgba(201,168,76,0.3); font-size: 0.72rem; letter-spacing: 0.2em; }
+    .kitchen-body { padding: 24px 24px 28px; }
+    .kitchen-area { font-size: 0.65rem; letter-spacing: 0.3em; color: var(--gold-light); opacity: 0.7; margin-bottom: 10px; text-transform: uppercase; }
+    .kitchen-name { font-size: 1.1rem; font-weight: 400; color: var(--white); margin-bottom: 14px; letter-spacing: 0.06em; }
+    .kitchen-awards { margin-bottom: 16px; }
+    .kitchen-award { display: flex; align-items: baseline; gap: 8px; font-size: 0.75rem; line-height: 1.7; color: rgba(232,224,208,0.8); margin-bottom: 4px; }
+    .kitchen-award::before { content: "✦"; color: var(--gold); font-size: 0.55rem; flex-shrink: 0; }
+    .kitchen-chef { font-size: 0.82rem; color: var(--cream); letter-spacing: 0.08em; }
+    .kitchen-chef span { color: var(--gold-light); }
+    .kitchen-card.coming-soon { border-style: dashed; border-color: rgba(201,168,76,0.15); background: transparent; }
+    .kitchen-coming-body { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 240px; gap: 12px; color: rgba(201,168,76,0.25); font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; }
 
-    /* ===== TICKET (NIGHT) ===== */
-    .ticket-section { background: var(--night); }
-    .ticket-section .section-label { color: rgba(232,160,64,0.85); }
-    .ticket-section .section-title { color: #f0ebe0; }
-    .ticket-section .section-divider { background: linear-gradient(90deg, rgba(201,168,76,0.7), rgba(232,160,64,0.4)); }
-    .ticket-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; margin-bottom: 56px; }
-    .ticket-card {
-      border: 1px solid rgba(201,168,76,0.3); padding: 48px 40px;
-      position: relative; text-align: center;
-      background: rgba(255,255,255,0.03);
-    }
-    .ticket-card.featured {
-      border-color: rgba(201,168,76,0.7);
-      background: rgba(201,168,76,0.06);
-    }
-    .ticket-label-tag {
-      position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
-      background: var(--amber); color: #fff;
-      font-size: 0.66rem; letter-spacing: 0.25em; padding: 4px 20px;
-      font-weight: 500; white-space: nowrap; font-family: 'Noto Sans JP', sans-serif;
-    }
-    .ticket-type { font-size: 0.72rem; letter-spacing: 0.4em; color: rgba(232,160,64,0.8); margin-bottom: 20px; font-family: 'Noto Sans JP', sans-serif; text-transform: uppercase; }
-    .ticket-price { font-size: clamp(2rem, 4vw, 3rem); color: #f0ebe0; font-weight: 300; margin-bottom: 8px; font-family: 'Noto Sans JP', sans-serif; }
+    /* ===== TICKET ===== */
+    .ticket-section { background: var(--navy); }
+    .ticket-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 64px; }
+    .ticket-card { border: 1px solid rgba(201,168,76,0.3); padding: 48px 40px; position: relative; text-align: center; }
+    .ticket-card.featured { border-color: var(--gold); background: rgba(201,168,76,0.05); }
+    .ticket-label-tag { position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--navy); font-size: 0.68rem; letter-spacing: 0.25em; padding: 4px 20px; font-weight: 700; white-space: nowrap; }
+    .ticket-type { font-size: 0.75rem; letter-spacing: 0.4em; color: var(--gold-light); text-transform: uppercase; margin-bottom: 20px; }
+    .ticket-price { font-size: clamp(2rem, 4vw, 3rem); color: var(--white); font-weight: 300; margin-bottom: 8px; }
     .ticket-price sup { font-size: 0.5em; vertical-align: super; opacity: 0.8; }
-    .ticket-note { font-size: 0.8rem; color: rgba(208,200,188,0.65); margin-bottom: 32px; font-family: 'Noto Sans JP', sans-serif; }
-    .ticket-btn {
-      display: block; padding: 13px; width: 100%;
-      background: transparent; border: 1px solid rgba(201,168,76,0.45);
-      color: rgba(232,160,64,0.85); font-size: 0.76rem; letter-spacing: 0.22em;
-      cursor: pointer; font-family: 'Noto Sans JP', sans-serif; transition: all 0.25s;
-    }
-    .ticket-card.featured .ticket-btn {
-      background: var(--amber); color: #fff; border-color: var(--amber); font-weight: 500;
-    }
-    .ticket-btn:hover { opacity: 0.82; }
+    .ticket-note { font-size: 0.82rem; color: rgba(232,224,208,0.65); margin-bottom: 32px; }
+    .ticket-btn { display: block; padding: 14px; width: 100%; background: transparent; border: 1px solid rgba(201,168,76,0.5); color: var(--gold-light); font-size: 0.78rem; letter-spacing: 0.25em; cursor: pointer; font-family: inherit; transition: all 0.25s; }
+    .ticket-card.featured .ticket-btn { background: var(--gold); color: var(--navy); border-color: var(--gold); font-weight: 700; }
+    .ticket-btn:hover { opacity: 0.85; }
 
-    /* ===== CAMP (NIGHT) ===== */
-    .camp-section { background: var(--night-2); }
-    .camp-section .section-label { color: rgba(232,160,64,0.85); }
-    .camp-section .section-title { color: #f0ebe0; }
-    .camp-section .section-divider { background: linear-gradient(90deg, rgba(201,168,76,0.7), rgba(232,160,64,0.4)); }
-    .camp-intro { text-align: center; font-size: 0.9rem; line-height: 1.95; color: var(--night-cream); max-width: 640px; margin: 0 auto 52px; font-family: 'Noto Sans JP', sans-serif; }
-    .camp-notice {
-      display: inline-block; background: rgba(201,168,76,0.07); border-left: 3px solid var(--amber);
-      padding: 14px 20px; font-size: 0.8rem; line-height: 1.8; color: var(--night-cream); margin-top: 20px; text-align: left;
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-    .camp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
-    .camp-card {
-      border: 1px solid rgba(255,255,255,0.1); padding: 28px 24px;
-      transition: border-color 0.3s; background: rgba(255,255,255,0.03); border-radius: 4px;
-    }
+    /* ===== CAMP ===== */
+    .camp-section { background: linear-gradient(180deg, #070d1a 0%, #081322 50%, #070d1a 100%); }
+    .camp-intro { text-align: center; font-size: 0.9rem; line-height: 1.95; color: var(--cream); max-width: 640px; margin: 0 auto 56px; }
+    .camp-notice { display: inline-block; background: rgba(201,168,76,0.08); border-left: 3px solid var(--gold); padding: 14px 20px; font-size: 0.82rem; line-height: 1.75; color: var(--cream); margin-top: 24px; text-align: left; }
+    .camp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .camp-card { border: 1px solid rgba(201,168,76,0.15); padding: 32px 28px; transition: border-color 0.3s; }
     .camp-card:hover { border-color: rgba(201,168,76,0.35); }
-    .camp-icon { font-size: 1.7rem; margin-bottom: 14px; }
-    .camp-plan-name { font-size: 1rem; font-weight: 400; color: #f0ebe0; margin-bottom: 7px; letter-spacing: 0.05em; }
-    .camp-meta { font-size: 0.76rem; color: rgba(208,200,188,0.55); letter-spacing: 0.07em; margin-bottom: 18px; line-height: 1.65; font-family: 'Noto Sans JP', sans-serif; }
+    .camp-icon { font-size: 1.8rem; margin-bottom: 16px; }
+    .camp-plan-name { font-size: 1.05rem; font-weight: 400; color: var(--white); margin-bottom: 8px; letter-spacing: 0.06em; }
+    .camp-meta { font-size: 0.78rem; color: rgba(232,224,208,0.55); letter-spacing: 0.08em; margin-bottom: 20px; line-height: 1.65; }
     .camp-price-row { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
-    .camp-base { font-size: 0.7rem; color: rgba(201,168,76,0.6); letter-spacing: 0.07em; font-family: 'Noto Sans JP', sans-serif; }
-    .camp-price { font-size: 1.3rem; color: rgba(232,160,64,0.9); font-weight: 300; font-family: 'Noto Sans JP', sans-serif; }
-    .camp-price-sub { font-size: 0.7rem; color: rgba(201,168,76,0.55); font-family: 'Noto Sans JP', sans-serif; }
+    .camp-base { font-size: 0.72rem; color: rgba(201,168,76,0.65); letter-spacing: 0.08em; }
+    .camp-price { font-size: 1.35rem; color: var(--gold-light); font-weight: 300; }
+    .camp-price-sub { font-size: 0.72rem; color: rgba(201,168,76,0.6); }
 
     /* ===== VENUE ===== */
-    .venue-section { background: var(--ivory); }
+    .venue-section { background: var(--deep); }
     .venue-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .venue-map-placeholder {
-      width: 100%; aspect-ratio: 4/3;
-      background: linear-gradient(135deg, var(--sage-lt) 0%, var(--sage) 100%);
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
-      color: var(--mid); font-size: 0.78rem; letter-spacing: 0.2em;
-      border: 1px solid var(--sage); border-radius: 4px;
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-    .venue-info-label { font-size: 0.7rem; letter-spacing: 0.4em; color: var(--amber); text-transform: uppercase; margin-bottom: 18px; font-family: 'Noto Sans JP', sans-serif; }
-    .venue-name { font-size: clamp(1.25rem, 2.3vw, 1.75rem); color: var(--charcoal); font-weight: 300; margin-bottom: 12px; line-height: 1.55; }
-    .venue-detail { font-size: 0.88rem; line-height: 1.95; color: var(--stone); }
+    .venue-map-placeholder { width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, #1a3a5c 0%, #071628 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; color: rgba(201,168,76,0.4); font-size: 0.78rem; letter-spacing: 0.2em; border: 1px solid rgba(201,168,76,0.12); }
+    .venue-info-label { font-size: 0.72rem; letter-spacing: 0.35em; color: var(--gold-light); text-transform: uppercase; margin-bottom: 20px; }
+    .venue-name { font-size: clamp(1.3rem, 2.5vw, 1.8rem); color: var(--white); font-weight: 300; margin-bottom: 12px; line-height: 1.5; }
+    .venue-detail { font-size: 0.88rem; line-height: 1.95; color: var(--cream); }
     .venue-detail p { margin-bottom: 6px; }
-    .venue-detail strong { color: var(--charcoal); }
-    .venue-detail .venue-note { font-size: 0.82rem; color: var(--stone); opacity: 0.75; margin-top: 14px; }
+    .venue-detail strong { color: var(--white); }
+    .venue-detail .venue-note { font-size: 0.85rem; color: rgba(232,224,208,0.6); margin-top: 14px; }
 
     /* ===== FOOTER ===== */
-    footer {
-      background: #0e1c0a; padding: 56px 24px 28px;
-      text-align: center; border-top: 3px solid var(--forest);
-    }
-    .footer-logo { font-size: 1.15rem; letter-spacing: 0.3em; color: rgba(232,160,64,0.9); margin-bottom: 8px; font-family: 'Noto Sans JP', sans-serif; }
-    .footer-sub { font-size: 0.7rem; letter-spacing: 0.22em; color: rgba(255,255,255,0.3); margin-bottom: 28px; font-family: 'Noto Sans JP', sans-serif; text-transform: uppercase; }
-    .footer-copy { font-size: 0.66rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.2); margin-top: 36px; font-family: 'Noto Sans JP', sans-serif; }
+    footer { background: #040810; padding: 60px 24px 32px; text-align: center; border-top: 1px solid rgba(201,168,76,0.1); }
+    .footer-logo { font-size: 1.2rem; letter-spacing: 0.3em; color: var(--gold-light); margin-bottom: 8px; }
+    .footer-sub { font-size: 0.72rem; letter-spacing: 0.2em; color: rgba(232,224,208,0.3); margin-bottom: 32px; text-transform: uppercase; }
+    .footer-copy { font-size: 0.68rem; letter-spacing: 0.15em; color: rgba(232,224,208,0.25); margin-top: 40px; }
 
     /* ===== MOBILE ===== */
     @media (max-width: 768px) {
-      .pad { padding: 68px 0; }
-      .section-header { margin-bottom: 44px; }
+      .pad { padding: 72px 0; }
+      .section-header { margin-bottom: 48px; }
       .hero img { width: 100%; }
-      .about-grid, .venue-grid { grid-template-columns: 1fr; gap: 36px; }
-      .artists-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+      .about-grid, .venue-grid { grid-template-columns: 1fr; gap: 40px; }
+      .artists-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
       .artist-card.unit { grid-column: span 2; }
-      .workshop-grid { grid-template-columns: 1fr; gap: 20px; }
-      .kitchen-grid { grid-template-columns: 1fr; gap: 20px; }
-      .ticket-grid { grid-template-columns: 1fr; gap: 28px; }
+      .workshop-grid { grid-template-columns: 1fr; }
+      .kitchen-grid { grid-template-columns: 1fr; }
+      .ticket-grid { grid-template-columns: 1fr; gap: 32px; }
       .camp-grid { grid-template-columns: 1fr; }
-      .overview-nostalgia { padding: 22px 18px; }
+      .overview-nostalgia { padding: 24px 20px; }
       .unit-members-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 480px) {
-      .section-inner, .overview-inner { padding: 0 16px; }
+      .section-inner, .overview-inner { padding: 0 18px; }
       .artists-grid { grid-template-columns: 1fr; }
       .artist-card.unit { grid-column: span 1; }
       .btn-primary { width: 100%; text-align: center; padding: 14px 24px; }
-      .ticket-card { padding: 36px 18px; }
-      .overview-tags { gap: 7px; }
+      .ticket-card { padding: 36px 20px; }
+      .overview-tags { gap: 8px; }
     }
   </style>
 </head>
