@@ -31,8 +31,55 @@
     }
 
     /* ===== HERO ===== */
-    .hero { line-height: 0; font-size: 0; }
-    .hero img { width: 100%; display: block; }
+    .hero {
+      position: relative; height: 680px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 60px 24px; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(26,58,92,0.6) 0%, transparent 70%),
+        radial-gradient(ellipse 30% 30% at 80% 70%, rgba(26,48,40,0.4) 0%, transparent 60%),
+        linear-gradient(180deg, #070d1a 0%, #0c1820 60%, #070d1a 100%);
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero-eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.5em; text-transform: uppercase;
+      color: var(--gold-light); margin-bottom: 28px; opacity: 0.9;
+    }
+    .hero-title {
+      font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 300;
+      color: var(--white); letter-spacing: 0.04em; line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-title em {
+      font-style: italic; color: var(--gold-light); font-weight: 300;
+    }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.4rem); letter-spacing: 0.55em;
+      color: var(--cream); text-transform: uppercase; margin-bottom: 44px; opacity: 0.8;
+    }
+    .hero-date-box {
+      display: inline-block; border: 1px solid rgba(201,168,76,0.4);
+      padding: 18px 48px; margin-bottom: 20px;
+    }
+    .hero-date {
+      font-size: clamp(0.9rem, 1.8vw, 1.05rem); letter-spacing: 0.2em;
+      color: var(--white); margin-bottom: 6px;
+    }
+    .hero-time {
+      font-size: 0.8rem; letter-spacing: 0.3em; color: var(--gold-light); opacity: 0.9;
+    }
+    .hero-venue {
+      font-size: 0.78rem; letter-spacing: 0.25em; color: var(--cream);
+      opacity: 0.7; margin-bottom: 44px;
+    }
+    .hero-deco-line {
+      position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 1px; height: 60px; background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.4));
+    }
 
     .btn-primary {
       display: inline-block; padding: 16px 52px; background: var(--gold); color: var(--navy);
@@ -233,7 +280,8 @@
     @media (max-width: 768px) {
       .pad { padding: 72px 0; }
       .section-header { margin-bottom: 48px; }
-      .hero img { width: 100%; }
+      .hero { height: 520px; }
+      .hero-date-box { padding: 14px 32px; }
       .about-grid, .venue-grid { grid-template-columns: 1fr; gap: 40px; }
       .artists-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
       .artist-card.unit { grid-column: span 2; }
@@ -258,7 +306,19 @@
 
 <!-- ===== HERO ===== -->
 <section class="hero">
-  <img src="https://static.wixstatic.com/media/79c0a1_ab2bcafb131942388da7a8bc7e5dd93d~mv2.png" alt="Blue Nostalgia Festival 2026" />
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">2026 Summer Music Festival</div>
+    <h1 class="hero-title">Blue<br><em>Nostalgia</em></h1>
+    <p class="hero-subtitle">Festival</p>
+    <div class="hero-date-box">
+      <p class="hero-date">2026年 8月 8日（土）</p>
+      <p class="hero-time">12:00 — 20:00</p>
+    </div>
+    <p class="hero-venue">TORCH キャンピング＆コワーキングスペース</p>
+    <a href="#ticket" class="btn-primary">チケットを確認する</a>
+  </div>
+  <div class="hero-deco-line"></div>
 </section>
 
 <!-- ===== FESTIVAL OVERVIEW ===== -->
